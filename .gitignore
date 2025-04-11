@@ -6,3 +6,7 @@
 .idea/inspectionProfiles/Project_Default.xml
 pokemon_formatted.json
 pokemon_formatted_with_descriptions.json
+pokemon.csv
+csv_to_json.py
+json_to_json_pro.py 
+add_images.py
