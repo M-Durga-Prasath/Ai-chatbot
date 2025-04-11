@@ -27,4 +27,4 @@ def ask():
         return jsonify({"error": "Invalid request"}), 400
 
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True)
