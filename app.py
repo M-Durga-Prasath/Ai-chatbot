@@ -1,16 +1,24 @@
 from flask import Flask, request, jsonify
-from Chatbot import handle_query  
+from Chatbot import handle_query
 from flask_cors import CORS
 
 app = Flask(__name__)
-CORS(app)  # Enable CORS so frontend can call backend from localhost
+CORS(app)  # Enable CORS for all domains
 
 @app.route("/ask", methods=["POST"])
 def ask():
-    data = request.get_json()
-    user_message = data.get("message", "")
-    response = handle_query(user_message)
-    return jsonify({"reply": response})
+    try:
+        data = request.get_json(force=True)
+        if not data or "message" not in data:
+            return jsonify({"error": "Missing 'message' in JSON payload"}), 400
+
+        user_message = data["message"]
+        response = handle_query(user_message)
+        return jsonify({"reply": response})
+
+    except Exception as e:
+        print("Error processing request:", e)
+        return jsonify({"error": "Invalid request"}), 400
 
 if __name__ == "__main__":
     app.run()
