@@ -1,9 +1,15 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_from_directory
 from Chatbot import handle_query
 from flask_cors import CORS
 
 app = Flask(__name__)
 CORS(app)  # Enable CORS for all domains
+
+
+@app.route("/")
+def serve_index():
+    return send_from_directory("static", "index.html")
+
 
 @app.route("/ask", methods=["POST"])
 def ask():
