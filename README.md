@@ -51,6 +51,7 @@ Prompt:
 ✨ Credits PokeAPI Sprites spaCy NLP RapidFuzz Pokémon type emojis
 
 📬 Crafted with ❤️ by Team PokéBot
+
 — @OmkarChoughule · @M-Durga-Prasath · @Mano-Bharathii
 
 ---
